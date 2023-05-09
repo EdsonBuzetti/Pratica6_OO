@@ -1,11 +1,10 @@
-
-
 public class Pessoa {
     private String nome;
     private String email;
     private String telefone;
 
     public Pessoa(String nome, String email, String telefone) {
+        super();
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
@@ -34,4 +33,7 @@ public class Pessoa {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+
+
 }
