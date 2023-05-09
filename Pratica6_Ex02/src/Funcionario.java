@@ -1,25 +1,27 @@
 public class Funcionario extends Pessoa{
-    private String dp;
+
+    private String departamento;
     private double salario;
     private String dataEntrada;
-    private String rg;
-    private boolean taNaEmpresa;
+    private String RG;
+    private boolean status;
 
-    public Funcionario(String nome, String email, String telefone, String dp, double salario, String dataEntrada, String rg, boolean taNaEmpresa) {
+    public Funcionario(String nome, String email, String telefone, String departamento, double salario, String dataEntrada,
+                       String rG, boolean status) {
         super(nome, email, telefone);
-        this.dp = dp;
+        this.departamento = departamento;
         this.salario = salario;
         this.dataEntrada = dataEntrada;
-        this.rg = rg;
-        this.taNaEmpresa = taNaEmpresa;
+        this.RG = rG;
+        this.status = status;
     }
 
-    public String getDp() {
-        return dp;
+    public String getDepartamento() {
+        return departamento;
     }
 
-    public void setDp(String dp) {
-        this.dp = dp;
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
     }
 
     public double getSalario() {
@@ -38,33 +40,33 @@ public class Funcionario extends Pessoa{
         this.dataEntrada = dataEntrada;
     }
 
-    public String getRg() {
-        return rg;
+    public String getRG() {
+        return RG;
     }
 
-    public void setRg(String rg) {
-        this.rg = rg;
+    public void setRG(String rG) {
+        RG = rG;
     }
 
-    public boolean isFoiEmbora() {
-        return taNaEmpresa;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setFoiEmbora(boolean foiEmbora) {
-        this.taNaEmpresa = foiEmbora;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
-    public void bonificar(double valor){
-        double alterarSal = getSalario();
-        alterarSal += valor;
-        setSalario(alterarSal);
+    public void bonificar(double bonus) {
+        this.salario = this.salario + bonus;
     }
 
-    public void demitir (){
-        this.taNaEmpresa = false;
+    public void demitir() {
+        this.status = false;
     }
 
-    public String mostrarDados(){
-        return " - Dados Funcionario:\nNome: "+getNome()+"\nEmail: "+getEmail()+"\nTelfone: "+getTelefone()+"\nDepartamento: "+getDp()+"\nSalário: "+getSalario()+"\nData Contratação: "+getDataEntrada()+"\nRG: "+getRg()+"\nAinda é funcionário: "+isFoiEmbora();
+    public String mostrarDados() {
+        return getNome()+ "\n" + getEmail()+"\n"+ getTelefone() + "\n" + getDepartamento()+"\n"+ getRG()+ "\n"+ getSalario()+"\n"+ getDataEntrada() + "\n" + isStatus();
     }
+
+
 }
