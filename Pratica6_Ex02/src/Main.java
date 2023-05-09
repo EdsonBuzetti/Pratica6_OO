@@ -1,20 +1,38 @@
-import java.util.ArrayList;
+import java.util.Scanner;
 
+import javax.swing.JOptionPane;
 public class Main {
+
     public static void main(String[] args) {
-        Funcionario f1 = new Funcionario("Lucas","lucaslima@gmail.com","(31) 997175645","Marketing",3500,"21/02/2007","18 593.566",true);
-        Funcionario f2 = new Funcionario("Marlon","marlin22@gmail.com","(31) 997175646", "Recursos Humanos",2500,"25/04/2022","18 593.687",true);
-        Funcionario f3 = new Funcionario("Jaime","jamersonluis@gmail.com","(31) 997175648","TI",7200,"03/09/2015","20 368.632",false);
+        Funcionario[] funcionarios = new Funcionario[10];
+        Funcionario func;
+        Empresa emp1;
+        String nome,email,telefone,departamento,dataEntrada,RG, nomeEmp,CNPJ;
+        Double salario;
+        int qtdeFunc;
+        boolean status=true;
 
-        ArrayList<Funcionario> func = new ArrayList<>();
-        func.add(f1);
-        func.add(f2);
-        func.add(f3);
-
-        Empresa company = new Empresa("Starting","25-2556.342512",200,func);
-
-        for(int i=0;i<func.size();i++){
-            System.out.println(func.get(i).mostrarDados());
+        for (int i=0;i<2;i++) {
+            nome=JOptionPane.showInputDialog("Nome");
+            email=JOptionPane.showInputDialog("Email");
+            telefone=JOptionPane.showInputDialog("Telefone");
+            departamento=JOptionPane.showInputDialog("Departamento");
+            dataEntrada=JOptionPane.showInputDialog("dataEntrada");
+            RG=JOptionPane.showInputDialog("RG");
+            salario=Double.parseDouble(JOptionPane.showInputDialog("Salario"));
+            func = new Funcionario(nome,email,telefone,departamento,salario,dataEntrada,RG,status);
+            funcionarios[i]=func;
         }
+
+        nomeEmp=JOptionPane.showInputDialog("Criando a Empresa, digite Nome");
+        CNPJ=JOptionPane.showInputDialog("CNPJ");
+        qtdeFunc=Integer.parseInt(JOptionPane.showInputDialog("Quantidade de Funcionario"));
+        emp1 = new Empresa(nomeEmp,CNPJ,qtdeFunc);
+        for(Funcionario func1:funcionarios) {
+            emp1.insereFuncionario(func1);
+            System.out.println(func1.mostrarDados());
+        }
+
     }
+
 }
